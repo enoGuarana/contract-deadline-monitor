@@ -29,3 +29,49 @@ graph LR
     C -->|Yes| D[Send Alert Teams/Email]
     C -->|Yes| E[Log to SQL/Excel]
     B -->|Processed Data| F[Power BI]
+
+🛠️ Technologies
+Category
+Technology
+Language
+Python 3.9+
+Cloud
+Azure (Functions, Logic Apps, Key Vault)
+Data
+SharePoint API, Excel
+Visualization
+Power BI
+Control
+Git/GitHub
+⚙️ Installation and Setup
+1. Prerequisites
+Python 3.9 installed
+Azure Account with appropriate permissions
+Access to Ministry SharePoint/Lists
+2. Environment Variables
+Create a .env file in the root based on .env.example:
+bash
+12345
+SHAREPOINT_SITE_URL=https://...
+SHAREPOINT_LIST_NAME=Contracts
+AZURE_TENANT_ID=...
+EMAIL_SENDER=...
+TEAMS_WEBHOOK_URL=...
+3. Install Dependencies
+bash
+1
+pip install -r requirements.txt
+4. Run Locally
+bash
+1
+python src/main.py
+🔒 Security and Data Privacy (LGPD/GDPR)
+Sensitive Data: This repository contains fictional data for portfolio purposes. In production, real data remains in the restricted Federal Government environment.
+Secrets: No credentials are stored in the code. Use Azure Key Vault or environment variables.
+Access: Alert access is restricted to managers responsible for each contract.
+📊 Expected Results (KPIs)
+100% Reduction in unmonitored expirations.
+Estimated savings of X hours/month in manual verification.
+Increased contractual compliance.
+🤝 Contributing
+This project is part of an internal initiative. For suggestions, contact the CGIN Data Team.
