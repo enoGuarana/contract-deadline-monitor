@@ -30,48 +30,55 @@ graph LR
     C -->|Yes| E[Log to SQL/Excel]
     B -->|Processed Data| F[Power BI]
 
-🛠️ Technologies
-Category
-Technology
-Language
-Python 3.9+
-Cloud
-Azure (Functions, Logic Apps, Key Vault)
-Data
-SharePoint API, Excel
-Visualization
-Power BI
-Control
-Git/GitHub
-⚙️ Installation and Setup
-1. Prerequisites
-Python 3.9 installed
-Azure Account with appropriate permissions
-Access to Ministry SharePoint/Lists
-2. Environment Variables
-Create a .env file in the root based on .env.example:
-bash
-12345
-SHAREPOINT_SITE_URL=https://...
-SHAREPOINT_LIST_NAME=Contracts
-AZURE_TENANT_ID=...
-EMAIL_SENDER=...
-TEAMS_WEBHOOK_URL=...
-3. Install Dependencies
-bash
-1
-pip install -r requirements.txt
-4. Run Locally
-bash
-1
-python src/main.py
-🔒 Security and Data Privacy (LGPD/GDPR)
-Sensitive Data: This repository contains fictional data for portfolio purposes. In production, real data remains in the restricted Federal Government environment.
-Secrets: No credentials are stored in the code. Use Azure Key Vault or environment variables.
-Access: Alert access is restricted to managers responsible for each contract.
-📊 Expected Results (KPIs)
-100% Reduction in unmonitored expirations.
-Estimated savings of X hours/month in manual verification.
-Increased contractual compliance.
-🤝 Contributing
-This project is part of an internal initiative. For suggestions, contact the CGIN Data Team.
+
+---
+
+## 🛡️ 3. Critical Security (Do Not Ignore!)
+
+Since you are handling government data, **never** upload real information to a public GitHub.
+
+1.  **`.gitignore` File**:
+    Create this file in the root to ensure passwords and data are not accidentally pushed.
+    ```gitignore
+    .env
+    __pycache__/
+    *.pyc
+    .vscode/
+    real_data/*.xlsx
+    notebooks/.ipynb_checkpoints
+    ```
+
+2.  **`.env.example` File**:
+    Create an example file **without real values** so anyone downloading the repo knows what to configure.
+    ```bash
+    # .env.example
+    SHAREPOINT_SITE_URL= https://your-tenant.sharepoint.com/sites/YourSite
+    CLIENT_ID= your-client-id
+    CLIENT_SECRET= your-secret
+    ```
+
+3.  **Dummy Data**:
+    For the GitHub to be public (portfolio), create a spreadsheet `contracts_example.xlsx` with **fake data** (e.g., "Highway X Concession", "Expiration: 2099"). **Never** use real process numbers or real financial values.
+
+4.  **Private vs. Public Repository**:
+    *   **Private:** If you are using real ministry data (even if anonymized), keep the repo **Private**.
+    *   **Public:** If you want to show this in your portfolio, use **only synthetic data** and make sure no internal URLs (e.g., `interno.transportes.gov.br`) are visible in the code.
+
+5.  **License**:
+    For government software in Brazil, **Creative Commons** or **MIT** are common. For a personal portfolio, **MIT** is standard and shows you understand open-source norms.
+
+---
+
+## 💡 4. Final Tips for Your Portfolio
+
+1.  **Commit Messages**: Use standard conventions (e.g., [Conventional Commits](https://www.conventionalcommits.org/)).
+    *   ✅ `feat: add teams notification logic`
+    *   ✅ `fix: correct sharepoint connection timeout`
+    *   ❌ `update code`
+2.  **Issues & Projects**: Use GitHub Issues to track tasks (e.g., "Implement Email Alert", "Connect Power BI"). This shows you know how to manage projects.
+3.  **Pin the Repo**: Once finished, pin this repository to your GitHub profile homepage.
+4.  **Description**: In the repo "About" section (sidebar), write: *Automated contract deadline monitoring system using Python and Azure. Developed for the Brazilian Ministry of Transport.*
+
+This structure shows **technical competence**, **security awareness**, and **professionalism**—key traits for both public sector roles and private tech companies.
+
+Would you like help writing the **Python code** for the `connectors.py` or `notifier.py` modules next? 🚀
